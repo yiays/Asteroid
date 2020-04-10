@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asteroid", "Asteroid.csproj", "{40DCCA39-F4D7-4115-9007-09C1842043BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	Release|Any CPU = Release|Any CPU
+	Tools|Any CPU = Tools|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40DCCA39-F4D7-4115-9007-09C1842043BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40DCCA39-F4D7-4115-9007-09C1842043BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40DCCA39-F4D7-4115-9007-09C1842043BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40DCCA39-F4D7-4115-9007-09C1842043BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40DCCA39-F4D7-4115-9007-09C1842043BF}.Tools|Any CPU.ActiveCfg = Tools|Any CPU
+		{40DCCA39-F4D7-4115-9007-09C1842043BF}.Tools|Any CPU.Build.0 = Tools|Any CPU
+	EndGlobalSection
+EndGlobal
