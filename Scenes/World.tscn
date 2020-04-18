@@ -9,23 +9,23 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/AsteroidSpawner.gd" type="Script" id=10]
 
-[sub_resource type="World" id=6]
+[sub_resource type="World" id=1]
 
-[sub_resource type="Gradient" id=10]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.0860927, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0 )
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.828221, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 576, 364 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ) ],
 "loop": false,
@@ -33,24 +33,24 @@ animations = [ {
 "speed": 0.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 32, 32 )
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 0, -32, 32, 32, -32, 32 )
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=8]
 font_path = "res://Fonts/Aly Hand.ttf"
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=9]
 size = 96
 outline_size = 2
 use_mipmaps = true
-font_data = SubResource( 3 )
+font_data = SubResource( 8 )
 
-[sub_resource type="Theme" id=5]
+[sub_resource type="Theme" id=10]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Viewport" type="Viewport" parent="."]
-world = SubResource( 6 )
+world = SubResource( 1 )
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 1024.0
@@ -75,7 +75,7 @@ spread = 0.0
 gravity = Vector2( 0, 0 )
 scale_amount = 5.0
 scale_amount_random = 1.0
-color_ramp = SubResource( 10 )
+color_ramp = SubResource( 2 )
 hue_variation = 1.0
 hue_variation_random = 1.0
 
@@ -90,8 +90,8 @@ direction = Vector2( 0, 0 )
 spread = 0.0
 gravity = Vector2( 0, 0 )
 scale_amount_random = 1.0
-scale_amount_curve = SubResource( 1 )
-color_ramp = SubResource( 2 )
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )
 
 [node name="Playspace" type="Area2D" parent="."]
 input_pickable = false
@@ -103,18 +103,17 @@ script = ExtResource( 7 )
 [node name="WorldHitbox" type="CollisionShape2D" parent="Playspace"]
 visible = false
 position = Vector2( 512, 300 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="Player" type="KinematicBody2D" parent="Playspace"]
 position = Vector2( 512, 300 )
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Playspace/Player"]
-frames = SubResource( 8 )
+frames = SubResource( 6 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="Playspace/Player"]
-visible = false
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [node name="Asteroids" type="Node" parent="Playspace"]
 script = ExtResource( 10 )
@@ -130,7 +129,7 @@ __meta__ = {
 [node name="Title" type="Label" parent="Title"]
 margin_right = 1024.0
 margin_bottom = 428.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Asteroid"
 align = 1
@@ -143,7 +142,7 @@ __meta__ = {
 margin_top = 428.0
 margin_right = 1024.0
 margin_bottom = 488.0
-theme = SubResource( 5 )
+theme = SubResource( 10 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.670588 )
 text = "Press any key to continue..."

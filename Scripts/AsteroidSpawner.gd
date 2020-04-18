@@ -2,7 +2,7 @@ extends Node
 
 const MAX_SPAWNS = 4
 const ASTEROIDSIZES = {1:32, 2:16, 3:8}
-var asteroidtemplate = load("res://Scenes/Asteroid-1.tscn")
+var asteroidtemplate = load("res://Scenes/Asteroid.tscn")
 var asteroidsize = 1
 
 func _ready():
@@ -30,8 +30,8 @@ func spawn(num, size, template):
 				continue
 		
 		var asteroid = template.instance()
+		asteroid.size = size
 		asteroid.position = randpos
 		asteroid.add_central_force(Vector2(10,0).rotated(rand_range(0,360)))
-		asteroid.bounce = 1
 		self.add_child(asteroid)
 		spawned.append(randpos)
